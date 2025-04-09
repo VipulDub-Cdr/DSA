@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 //Yahaan par apan ko base condition ki zaroorat nahi padh rahi hai
-void solve(vector<vector<int>> &adj, int startingNode, unordered_map<int, bool> &visited) {
+void solve(vector<vector<int>> &adj, int startingNode, unordered_map<int, bool> &visited) { 
     visited[startingNode] = true;
     for(auto it : adj[startingNode]){
         if(!visited[it]){
@@ -23,9 +23,12 @@ void BFS(vector<vector<int>> &adj,int startingNode){
     unordered_map<int, bool> visited;
     visited[startingNode] = true;
     while(!q.empty()){
+        //Node uthao
         int fontNode = q.front();
         q.pop();
+        //print karo
         cout<<fontNode<<" ";
+        //adjacent nodes ko push kardo
         for(auto it : adj[fontNode]){
             if(!visited[it]){
                 q.push(it);

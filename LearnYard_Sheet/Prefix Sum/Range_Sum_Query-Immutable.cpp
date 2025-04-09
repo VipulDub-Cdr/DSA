@@ -7,6 +7,7 @@ int rangeSum(vector<int> arr,int left,int right){
     for(int i=1;i<n;i++){
         prefixSum[i] = prefixSum[i-1] + arr[i];
     }
+    //The edge case should be considered in this case!
     if(left == 0) return prefixSum[right];
     return prefixSum[right] - prefixSum[left-1];
 }
