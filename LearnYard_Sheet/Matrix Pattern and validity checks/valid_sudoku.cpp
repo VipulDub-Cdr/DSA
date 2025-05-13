@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 //Brute-force
-bool isValidSudoku(vector<vector<char>>& mat) {
+bool isValidSudoku4ms(vector<vector<char>>& mat) {
     //check the rows
     unordered_map<int,int> umpp;
     for(int i=0;i<9;i++){
@@ -39,6 +39,23 @@ bool isValidSudoku(vector<vector<char>>& mat) {
     }
     return true;
 
+}
+bool isValidSudoku7ms(vector<vector<char>>& board) {
+    vector<unordered_set<char>> rows(9),cols(9),boxes(9);
+    for(int i = 0;i<9;i++){
+        for(int j=0;j<9;j++){
+            char ch = board[i][j];
+            if(ch=='.') continue;
+            int boxnumber = (i/3)*3+(j/3);
+            if(rows[i].count(ch)||cols[j].count(ch)|| boxes[boxnumber].count(ch)){
+                return false;
+            }
+            rows[i].insert(ch);
+            cols[j].insert(ch);
+            boxes[boxnumber].insert(ch);
+        }
+    }
+    return true;
 }
 int main() {
     
