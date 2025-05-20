@@ -12,7 +12,7 @@ vector<int> dailyTemperatures(vector<int>& arr) {
     int n = arr.size();
     vector<int> result(n);
     for(int i = n-1;i>=0;i--){
-        //jatak temperature stk ke top ke index ki value se zyaada hai tab tak pop karenge
+        //jabtak temperature stk ke top ke index ki value se zyaada hai tab tak pop karenge
         while(!stk.empty() and arr[i]>=arr[stk.top()]){
             stk.pop();
         }
