@@ -23,7 +23,7 @@ void BFS(vector<vector<int>> &adj,int startingNode){
     unordered_map<int, bool> visited;
     visited[startingNode] = true;
     while(!q.empty()){
-        //Node uthao
+        //Node uthao 
         int fontNode = q.front();
         q.pop();
         //print karo

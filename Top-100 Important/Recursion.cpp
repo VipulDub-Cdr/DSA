@@ -73,6 +73,19 @@ void permute(string s,int l,int r){
         }
     }
 }
+
+//Find the nth term of the series - F(N)= (1) +(2*3) + (4*5*6) … N.
+int term(int calculated,int current,int N){
+    int i,curr;
+    if(current==N+1) return 0;
+    for(int i = calculated;i<current+calculated;i++){
+        curr*i;
+    }
+    return curr+term(i,current+1,N);
+}
+
+//
+
 int main() {
     // cout<<powerOptimal(3,4);
     int arr[] = {2,21,8,7,19};
