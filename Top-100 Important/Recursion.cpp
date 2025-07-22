@@ -84,7 +84,13 @@ int term(int calculated,int current,int N){
     return curr+term(i,current+1,N);
 }
 
-//
+//Given a list arr of N integers, print sums of all subsets in it
+void subsetSums(int index,int currentSum, vector<int>& arr,vector<int>& result){
+    if(index==arr.size()){
+        result.push_back(currentSum);
+        
+    }
+}
 
 int main() {
     // cout<<powerOptimal(3,4);
