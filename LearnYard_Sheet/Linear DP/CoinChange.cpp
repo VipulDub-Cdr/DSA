@@ -13,7 +13,7 @@ int coinChange(vector<int> coins, int amount){
             }
         }
     }
-    return dp[amount]==INT_MAX?-1:-dp[amount]1;
+    return dp[amount]==INT_MAX?-1:-dp[amount];
 }
 int main(){
     return 0;
