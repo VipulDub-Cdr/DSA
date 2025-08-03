@@ -12,7 +12,7 @@ private:
         if(amount < coins[i]){
             return solve(i+1,amount, coins);
         }
-
+        
         int take = solve(i,amount-coins[i],coins);
         int skip = solve(i+1, amount,coins);
 
