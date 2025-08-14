@@ -1,8 +1,7 @@
-Questions Completed
 
 ## Two Pointers
 
-1. DI String match
+<!-- 1. DI String match
 2. Merge Sorted array
 3. Merge Two 2D arrays by summing the values
 4. Reverse Prefix word
@@ -51,4 +50,4 @@ Questions Completed
 
 1. Lucky numbers in matrix
 2. Richest customer wealth
-3. Row with maximum ones
+3. Row with maximum ones -->
