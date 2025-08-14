@@ -4,7 +4,6 @@ using namespace std;
 //without dp (using recursion only)
 class Solution{
 private:
-    int t[301][5001];
     int solve(int i, int amount,vector<int>& coins){
         int n = coins.size();
         if(amount ==0) return 1;
@@ -22,7 +21,6 @@ public:
     int change(int amount, vector<int>& coins) {
         int n = coins.size();
         int i = 0;
-        memset(t,-1,sizeof(t));
         int ans = solve(i, amount,coins);
                 
     }
