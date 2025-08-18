@@ -6,3 +6,5 @@
 3. Rotate array
 4. Two Sum
 5. Three Sum
+6. Sort colors
+7. Next Permutation
