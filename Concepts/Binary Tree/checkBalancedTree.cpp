@@ -2,19 +2,27 @@
 #include<constructBT.h>
 using namespace std;
 
-int getHeight(node* root){
-    if(!root) return 0;
+int height(node* root){
+    if(root == NULL) return 0;
 
-    int leftHeight = getHeight(root->left);
-    int rightHeight = getHeight(root->right);
+    int left = height(root->left);
+    int right = height(root->right);
 
-    return max(leftHeight,rightHeight)+1;
+    int ans = max(left,right) + 1;
+    return ans;
 }
 
-bool checkBalancedTree(node* root){
-    if(root==NULL) return root;
+bool isBalanced(node* root){
+    if(root==NULL) return true;
 
-    return abs(getHeight(root->left)-getHeight(root->right))>=2;
+    bool left = isBalanced(root->left);
+    bool right = isBalanced(root->right);
+
+    bool diff = abs(height(root->left)-height(root->right))<=1;
+
+    if(left and right and diff) return true;
+    else return false;
+    
 }
 
 int main() {
