@@ -1,18 +1,35 @@
 #include <bits/stdc++.h>
 using namespace std;
-//leetcode 403
+//leetcode 403 - Frog jump
 
 class Solution {
 public:
+    int dp[2001][2001];
+    bool solve(int csi,int pj, unordered_map<int,int>& umpp,vector<int>& stones){
+        if(csi==stones.size()-1) return true;
+        if(dp[csi][pj]!=-1) return dp[csi][pj];
+        int result = false; 
+        for(int nextjump = pj-1;nextjump<=pj+1;nextjump++){
+            if(nextjump>0 and umpp.find(stones[csi]+nextjump)!=umpp.end()){
+                result = result || solve(umpp[stones[csi]+nextjump],nextjump,umpp,stones);
+            }
+        }
+        return dp[csi][pj] = result;
+    }
     bool canCross(vector<int>& stones) {
-        
+        unordered_map<int,int> umpp;
+        for(int i=0;i<stones.size();i++){
+            umpp[stones[i]] = i;
+        }
+        memset(dp,-1,sizeof(dp));
+        if(stones[1]!=1) return false;
+        int ans = solve(1,1,umpp,stones);
+        return ans;
     }
 };
-int main() {
-    
-    return 0;
-}
-// my iterative solution - 15/55 test cases passed gives TLE
+
+
+// my iterative solution - 15/55 test cases passed gives TLE (3^n)
 class SolutionTLE {
     bool solve(int i, unordered_map<int,int>& umpp,vector<int>& stones, vector<int>& dp){
         if(i==stones.size()-1) return true;
