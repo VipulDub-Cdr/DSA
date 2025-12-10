@@ -1,0 +1,26 @@
+Question: Frog Jump II (LeetCode 2498)
+You are given a 0-indexed integer array stones of length n, where stones[i] represents the position of the i-th stone.
+A frog is initially at stone 0. The frog wants to reach stone n-1.
+In one jump, the frog can jump from stone i to stone j such that j > i.
+The frog wants to minimize the maximum jump length it makes.
+Return the minimum possible value of the maximum jump length.
+
+Sample Input: stones = [0, 2, 5, 6, 7]
+Sample Answer: 5
+
+Constraints:
+n == stones.length
+2 <= n <= 10^5
+0 <= stones[i] <= 10^9
+stones[0] == 0
+stones is sorted in a strictly increasing order.
+
+Approaches Used:
+Greedy approach / Single pass iteration.
+The problem asks for the minimum possible value of the maximum jump length. This can be achieved by considering two interleaved paths for traversing the stones: one covering stones at even indices (0, 2, 4, ...) and another covering stones at odd indices (1, 3, 5, ...). The solution identifies the maximum jump length required across all segments of these two conceptual paths.
+
+Additional Points:
+1. Edge Case: For an array with exactly two stones (n=2), the loop for skipped jumps does not execute. The initial value of max_jump, which is stones[1]-stones[0], is correctly returned as it represents the only possible jump.
+2. Time Complexity: O(n) because the solution involves a single pass (loop) through the array of stones.
+3. Space Complexity: O(1) as only a few constant variables are used for storing the maximum jump and loop counter.
+4. The core insight for this problem is that to minimize the maximum jump, the frog effectively takes two distinct, interleaved "journeys". One journey connects stone 0, stone 2, stone 4, and so on. The other journey connects stone 1, stone 3, stone 5, and so on. The maximum jump for the first journey is max(stones[2k+2] - stones[2k]). The maximum jump for the second journey is max(stones[1]-stones[0], stones[2k+3] - stones[2k+1]). The overall answer is the maximum of all these individual jumps across both journeys. The solution efficiently computes this by checking stones[1]-stones[0] initially, and then iterating to find the maximum of stones[i]-stones[i-2] for all subsequent possible "skip-one" jumps, which covers both interleaved paths.

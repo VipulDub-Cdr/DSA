@@ -1,0 +1,26 @@
+Question:
+Given n coins with integer values, find the minimum number of coins you need to take such that the sum of the values of the coins you take is strictly greater than the sum of the values of the remaining coins.
+
+Sample Input:
+3
+2 3 4
+
+Sample Output:
+2
+
+Constraints:
+1 <= n <= 100
+1 <= value of each coin <= 100
+
+Approaches used:
+1. Greedy approach: To minimize the number of coins while maximizing their sum, it is optimal to always pick the coins with the largest values first.
+2. Sorting: The coin values are sorted in ascending order to easily iterate and pick the largest values from the end of the sorted array.
+3. Total Sum Calculation: The total sum of all coins is calculated once. Then, as coins are picked, their sum is accumulated, and the sum of remaining coins is derived by subtracting the accumulated sum from the total sum.
+
+Additional points:
+1. The input reading mechanism in the provided code initializes a vector of size n with zeros and then pushes back n more actual coin values. This results in a vector of size 2*n containing n zeros followed by the n input values.
+2. Despite the unusual input reading, the solution works correctly for this specific problem because:
+   a. Sorting places the actual coin values after the zeros.
+   b. The iteration starts from the end of the sorted vector, effectively picking the actual coin values first.
+   c. Zeros do not contribute to the sum, so their presence does not alter the total sum or the condition check for sums of positive coin values.
+3. The problem can be rephrased as finding the minimum number of coins whose sum is strictly greater than (total sum of all coins) / 2.
