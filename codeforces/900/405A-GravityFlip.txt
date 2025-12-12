@@ -12,9 +12,9 @@ Constraints:
 -10^9 <= arr[i] <= 10^9
 
 Approaches I used in the given solution:
-Standard Library Sort (std::sort)
+- Standard Library Sort (std::sort) (Bubble sort will be preferred)
 
 Additional points I included in the solution:
-Used std::vector for dynamic array management.
-Used <bits/stdc++.h> for convenience, including common headers.
-Used standard input/output streams (cin/cout) for I/O.
+- Used std::vector for dynamic array management.
+- Used <bits/stdc++.h> for convenience, including common headers.
+- Used standard input/output streams (cin/cout) for I/O.
